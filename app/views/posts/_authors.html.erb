@@ -1,0 +1,24 @@
+<div class="column is-one-quarter">
+  <nav class="panel">
+    <p class="panel-heading">Authors</p>
+    <%# 5 times randomly selected authors are listed. AI could also be implemented. %>
+    <% 5.times do %>
+    <div class="panel-block">
+      <article class="media">
+        <div class="media-left">
+          <figure class="image is-64x64">
+            <img>
+          </figure>
+        </div>
+        <div class="media-content">
+          <div class="content">
+            <strong>The author</strong><br />
+            <small>The username</small>
+          </div>
+        </div>
+      </article>
+    </div>
+    <% end %>
+
+  </nav>
+</div>
