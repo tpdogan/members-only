@@ -23,7 +23,8 @@ class PostsController < ApplicationController
       if @post.save
         format.html { redirect_to root_path, notice: 'Post was successfully created.' }
       else
-        format.html { redirect_to root_path, alert: 'Text is missing.' }
+        @posts = Post.all
+        format.html { render :index, alert: 'Post was not created.' }
       end
     end
   end
