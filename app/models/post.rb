@@ -1,3 +1,4 @@
 class Post < ApplicationRecord
-  belongs_to :member
+  validates :body, :title, presence: true
+  #belongs_to :member
 end

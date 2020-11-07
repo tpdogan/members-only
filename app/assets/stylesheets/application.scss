@@ -14,5 +14,18 @@
  *= require_self
  */
 
- /* Import bulma file */
- @import "bulma";
+/* Import bulma file */
+@import "bulma";
+
+.image {
+  border-radius: 50%;
+  img {
+    border-radius: 50%;
+  }
+}
+
+.notification:not(:last-child){
+  margin-bottom: 0;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}

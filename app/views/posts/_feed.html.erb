@@ -3,11 +3,11 @@
   <article class="media box">
     <figure class="media-left">
       <p class="image is-64x64"> <%# why is it p here and div in the bottom, test this %>
-        <img>
+        <img src="https://bulma.io/images/placeholders/32x32.png">
       </p>
     </figure>
     <div class="media-content">
-      <%#= render "#" #fill here a form for postage %>
+      <%= render "posts/form" %>
     </div>
   </article>
 
@@ -17,13 +17,14 @@
       <article class="media">
         <div class="media-left">
           <figure class="image is-64x64">
-            <img>
+            <img src="https://bulma.io/images/placeholders/32x32.png">
           </figure>
         </div>
         <div class="media-content">
           <div class="content">
             <strong>The author</strong><br />
             <small>The username</small>
+            <p><strong><%= post.title %>:</strong> <%= post.body %></p>
           </div>
 
           <nav class="level">
