@@ -2,7 +2,11 @@
 <article class="media box">
   <figure class="media-left">
     <p class="image is-64x64"> <%# why is it p here and div in the bottom, test this %>
-      <img src="https://genslerzudansdentistry.com/wp-content/uploads/2015/11/anonymous-user-300x296.png">
+      <% if member_signed_in? %>
+        <img src=<%= current_member.icon %>>
+      <% else %>
+        <img src="https://www.flaticon.com/svg/static/icons/svg/1077/1077114.svg">
+      <% end %>
     </p>
   </figure>
   <div class="media-content">
