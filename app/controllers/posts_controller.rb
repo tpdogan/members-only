@@ -5,10 +5,12 @@ class PostsController < ApplicationController
   def index
     @posts = Post.all.order("created_at DESC")
     @post = Post.new
+    @members = Member.all
   end
 
   def show
     @posts = Post.all.order("created_at DESC")
+    @members = Member.all
   end
 
   def new
@@ -17,6 +19,7 @@ class PostsController < ApplicationController
 
   def edit
     @posts = Post.all.order("created_at DESC")
+    @members = Member.all
   end
 
   def create

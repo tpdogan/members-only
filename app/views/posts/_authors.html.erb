@@ -1,9 +1,21 @@
 <div class="column is-one-quarter">
   <nav class="panel">
     <p class="panel-heading">Authors</p>
-    <%# 5 times randomly selected authors are listed. AI could also be implemented. %>
-    <% 5.times do %>
-    <div class="panel-block">
+    
+    <% nums = [] %>
+    <% c = 0 %>
+    <% max = 5 %>
+    <% while c < 5 do %>
+    <% n = rand(@members.length-1) %>
+    <% unless nums.include? n %>
+      <% nums.push(n) %>
+      <% c += 1 %>
+    <% end %>
+    <% end %>
+
+    <% nums.each do |n| %>
+      <% member = @members[n] %>
+      <div class="panel-block">
       <article class="media">
         <div class="media-left">
           <figure class="image is-64x64">
@@ -12,8 +24,8 @@
         </div>
         <div class="media-content">
           <div class="content">
-            <strong>The author</strong><br />
-            <small>The username</small>
+            <strong><%= link_to member.username, root_path, class: "is-link" %> </strong><br />
+            <small>Latest Post: <%= link_to member.posts.last.title, post_path(member.posts.last[:id]), class: "is_link" %> </small>
           </div>
         </div>
       </article>
