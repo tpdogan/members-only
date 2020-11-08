@@ -19,6 +19,20 @@
           <% end %>
           </div>
 
+          <div class="field">
+            <div class="control">
+              <%= f.input :username,
+                      required: true,
+                      wrapper: false,
+                      input_html: { class: "input" },
+                      input_label: { class: "label" },
+                      :error => false %>
+            </div>
+          <% unless resource.errors[:username].empty? %>
+            <p class="help is-danger">Please enter a valid username</p>
+          <% end %>
+          </div>
+
           <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
             <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
           <% end %>

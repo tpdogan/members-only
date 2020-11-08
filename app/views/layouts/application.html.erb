@@ -42,7 +42,7 @@
 
               <% if member_signed_in? %>
               <p class="control">
-                <%= link_to current_member.email, edit_member_registration_path, class: "button is-primary has-text-dark"%>
+                <%= link_to current_member.username, edit_member_registration_path, class: "button is-primary has-text-dark"%>
               </p>
               <p class="control">
                 <%= link_to "Log out", destroy_member_session_path, method: :delete, class: "button is-primary has-text-dark"%>
