@@ -39,12 +39,23 @@
               <p class="control">
                 <%= link_to "New Topic", root_path, class: "button is-dark has-text-white"%>
               </p>
+
+              <% if member_signed_in? %>
+              <p class="control">
+                <%= link_to current_member.email, edit_member_registration_path, class: "button is-primary has-text-dark"%>
+              </p>
+              <p class="control">
+                <%= link_to "Log out", destroy_member_session_path, method: :delete, class: "button is-primary has-text-dark"%>
+              </p>
+              <% else %>
               <p class="control">
                 <%= link_to "New User", new_member_registration_path, class: "button is-primary has-text-dark is-hoverable"%>
               </p>
               <p class="control">
                 <%= link_to "Sign In", new_member_session_path, class: "button is-primary has-text-dark"%>
               </p>
+              <% end %>
+              
             </div>
           </div>
         </div>
