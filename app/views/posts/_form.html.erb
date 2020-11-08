@@ -1,37 +1,48 @@
-<%= simple_form_for(@post) do |f| %>
+<%# This part is to create post forms %>
+<article class="media box">
+  <figure class="media-left">
+    <p class="image is-64x64"> <%# why is it p here and div in the bottom, test this %>
+      <img src="https://genslerzudansdentistry.com/wp-content/uploads/2015/11/anonymous-user-300x296.png">
+    </p>
+  </figure>
+  <div class="media-content">
+  <%= simple_form_for(@post) do |f| %>
 
-  <div class="field">
-    <div class="control">
-      <%= f.input :title,
-              label: "Title: ",
-              input_html: { class: "string" },
-              wrapper: false, label_html: { class:"label" },
-              placeholder: "Enter a title",
-              autofocus: true,
-              :error => false %>
+    <div class="field">
+      <div class="control">
+        <%= f.input :title,
+                label: "Title: ",
+                input_html: { class: "string" },
+                wrapper: false, label_html: { class:"label" },
+                placeholder: "Enter a title",
+                autofocus: true,
+                :error => false %>
+      </div>
+      <% unless @post.errors[:title].empty? %>
+        <p class="help is-danger">Please enter a title</p>
+      <% end %>
     </div>
-    <% unless @post.errors[:title].empty? %>
-      <p class="help is-danger">Please enter a title</p>
-    <% end %>
-  </div>
 
-  <div class="field">
-    <div class="control">
-      <%= f.input :body,
-              label: "Tell your secret: ",
-              input_html: { class: "textarea has-fixed-size" },
-              wrapper: false,
-              label_html: { class:"label" },
-              placeholder: "Enter story",
-              :error => false %>
+    <div class="field">
+      <div class="control">
+        <%= f.input :body,
+                label: "Tell your secret: ",
+                input_html: { class: "textarea has-fixed-size" },
+                wrapper: false,
+                label_html: { class:"label" },
+                placeholder: "Enter story",
+                :error => false %>
+      </div>
+      <% unless @post.errors[:body].empty? %>
+        <p class="help is-danger">Please enter a story</p>
+      <% end %>
     </div>
-    <% unless @post.errors[:body].empty? %>
-      <p class="help is-danger">Please enter a story</p>
+    <% if member_signed_in? %>
+      <%= f.submit "Post the secret", class: "button is-primary"%>
+    <% else %>
+      <%= f.submit "Log in to post", class: "button is-danger"%>
     <% end %>
-  </div>
-  <% if member_signed_in? %>
-    <%= f.submit "Post the secret", class: "button is-primary"%>
-  <% else %>
-    <%= f.submit "Log in to post", class: "button is-danger"%>
   <% end %>
-<% end %>
+
+  </div>
+</article>

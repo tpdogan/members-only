@@ -1,15 +1,3 @@
-<%# This part is to create post forms %>
-<article class="media box">
-  <figure class="media-left">
-    <p class="image is-64x64"> <%# why is it p here and div in the bottom, test this %>
-      <img src="https://genslerzudansdentistry.com/wp-content/uploads/2015/11/anonymous-user-300x296.png">
-    </p>
-  </figure>
-  <div class="media-content">
-    <%= render "posts/form" %>
-  </div>
-</article>
-
 <%# This part is to show each post %>
 <% @posts.each do |post| %>
   <div class="box">

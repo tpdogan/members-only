@@ -1,6 +1,15 @@
-<h1>Editing Post</h1>
+<section class="section">
+  <div class="container">
+    <div class="columns">
+      <%= render "topics" %>
+      
+      <div class="column is-half">
+        <h1 class="title is-2 has-text-centered has-text-primary">Edit Your Post</h1>
+        <%= render "posts/form", post: @post %>
+      <%= render "feed" %>
+      </div>
 
-<%= render 'form', post: @post %>
-
-<%= link_to 'Show', @post %> |
-<%= link_to 'Back', posts_path %>
+      <%= render "authors" %>
+    </div>
+  </div>
+</section>

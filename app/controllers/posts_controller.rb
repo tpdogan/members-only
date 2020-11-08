@@ -16,6 +16,7 @@ class PostsController < ApplicationController
   end
 
   def edit
+    @posts = Post.all.order("created_at DESC")
   end
 
   def create
