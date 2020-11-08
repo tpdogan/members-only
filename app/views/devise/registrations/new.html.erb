@@ -21,6 +21,20 @@
 
           <div class="field">
             <div class="control">
+              <%= f.input :username,
+                      required: true,
+                      wrapper: false,
+                      input_html: { class: "input" },
+                      input_label: { class: "label" },
+                      :error => false %>
+            </div>
+          <% unless resource.errors[:email].empty? %>
+            <p class="help is-danger">The username is not valid</p>
+          <% end %>
+          </div>
+
+          <div class="field">
+            <div class="control">
               <%= f.input :password,
                       required: true,
                       wrapper: false,

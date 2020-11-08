@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :members, :controllers => { registrations: "registrations" }
   resources :posts
-  devise_for :members
   root to: "posts#index"
 end
