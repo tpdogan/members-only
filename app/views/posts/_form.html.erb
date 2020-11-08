@@ -29,6 +29,9 @@
       <p class="help is-danger">Please enter a story</p>
     <% end %>
   </div>
-
-  <%= f.submit "Post the secret", class: "button is-primary"%>
+  <% if member_signed_in? %>
+    <%= f.submit "Post the secret", class: "button is-primary"%>
+  <% else %>
+    <%= f.submit "Log in to post", class: "button is-danger"%>
+  <% end %>
 <% end %>
