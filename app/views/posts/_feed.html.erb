@@ -22,11 +22,16 @@
         </div>
         <div class="media-content">
           <div class="content">
+            <% if member_signed_in? %>
             <strong>The author</strong><br />
-            <small>The username</small>
+            <% else %>
+            <strong>Log in to see the author's name</strong>
+            <% end %>
             <p><strong><%= post.title %>:</strong> <%= post.body %></p>
+            <p>Posted on: <%= post.created_at.strftime("%d-%m-%Y (%A)") %> </p>
           </div>
 
+          <% if member_signed_in? %>
           <nav class="level">
             <div class="level-left is-mobile">
               <%= link_to post, class: "level-item" do %> <%# what does the loop do here %>
@@ -40,6 +45,7 @@
               <% end %>
             </div>
           </nav>
+          <% end %>
         </div>
       </article>
     </div>
