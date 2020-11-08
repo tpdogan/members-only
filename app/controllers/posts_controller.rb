@@ -8,6 +8,7 @@ class PostsController < ApplicationController
   end
 
   def show
+    @posts = Post.all.order("created_at DESC")
   end
 
   def new
