@@ -24,8 +24,13 @@
         </div>
         <div class="media-content">
           <div class="content">
-            <strong><%= link_to member.username, root_path, class: "is-link" %> </strong><br />
-            <small>Latest Post: <%= link_to member.posts.last.title, post_path(member.posts.last[:id]), class: "is_link" %></small>
+            <% if member_signed_in? %>
+              <strong><%= link_to member.username, root_path, class: "is-link" %> </strong><br />
+              <small>Latest Post: <%= link_to member.posts.last.title, post_path(member.posts.last[:id]), class: "is_link" %></small>
+            <% else %>
+              <strong>Log in to see the author's name</strong><br />
+              <small><%= link_to member.posts.last.title, post_path(member.posts.last[:id]), class: "is_link" %></small>
+            <% end %>
           </div>
         </div>
       </article>

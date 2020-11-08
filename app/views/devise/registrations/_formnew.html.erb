@@ -1,0 +1,126 @@
+<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= f.label :icon,
+              required: true,
+              wrapper: false,
+              input_html: { class: "input" },
+              input_label: { class: "label" },
+              :error => false %>
+  <div class="field">
+    <div class="columns">
+      <div class="column is-2">
+        <div class="tags is-centered">
+          <figure class="image is-32x32">
+            <img src="https://www.flaticon.com/svg/static/icons/svg/3532/3532381.svg">
+          </figure>
+          <%= f.radio_button :icon, "https://www.flaticon.com/svg/static/icons/svg/3532/3532381.svg", checked: true %>
+        </div>
+      </div>
+      <div class="column is-2">
+        <div class="tags is-centered">
+          <figure class="image is-32x32">
+            <img src="https://www.flaticon.com/svg/static/icons/svg/3532/3532709.svg">
+          </figure>
+          <%= f.radio_button :icon, "https://www.flaticon.com/svg/static/icons/svg/3532/3532709.svg" %>
+        </div>
+      </div>
+      <div class="column is-2">
+        <div class="tags is-centered">
+          <figure class="image is-32x32">
+            <img src="https://www.flaticon.com/svg/static/icons/svg/3532/3532468.svg">
+          </figure>
+          <%= f.radio_button :icon, "https://www.flaticon.com/svg/static/icons/svg/3532/3532468.svg" %>
+        </div>
+      </div>
+      <div class="column is-2">
+        <div class="tags is-centered">
+          <figure class="image is-32x32">
+            <img src="https://www.flaticon.com/svg/static/icons/svg/3532/3532652.svg">
+          </figure>
+          <%= f.radio_button :icon, "https://www.flaticon.com/svg/static/icons/svg/3532/3532652.svg" %>
+        </div>
+      </div>
+      <div class="column is-2">
+        <div class="tags is-centered">
+          <figure class="image is-32x32">
+            <img src="https://www.flaticon.com/svg/static/icons/svg/3532/3532813.svg">
+          </figure>
+          <%= f.radio_button :icon, "https://www.flaticon.com/svg/static/icons/svg/3532/3532813.svg" %>
+        </div>
+      </div>
+      <div class="column is-2">
+        <div class="tags is-centered">
+          <figure class="image is-32x32">
+            <img src="https://www.flaticon.com/svg/static/icons/svg/3532/3532597.svg">
+          </figure>
+          <%= f.radio_button :icon, "https://www.flaticon.com/svg/static/icons/svg/3532/3532597.svg" %>
+        </div>
+      </div>
+    </div>
+  <% unless resource.errors[:email].empty? %>
+    <p class="help is-danger">Please select an icon</p>
+  <% end %>
+  </div>
+
+  <div class="field">
+    <div class="control">
+      <%= f.input :email,
+              required: true,
+              wrapper: false,
+              input_html: { class: "input" },
+              input_label: { class: "label" },
+              :error => false %>
+    </div>
+  <% unless resource.errors[:email].empty? %>
+    <p class="help is-danger">Please enter a valid e-mail</p>
+  <% end %>
+  </div>
+
+  <div class="field">
+    <div class="control">
+      <%= f.input :username,
+              required: true,
+              wrapper: false,
+              input_html: { class: "input" },
+              input_label: { class: "label" },
+              :error => false %>
+    </div>
+  <% unless resource.errors[:email].empty? %>
+    <p class="help is-danger">The username is not valid</p>
+  <% end %>
+  </div>
+
+  <div class="field">
+    <div class="control">
+      <%= f.input :password,
+              required: true,
+              wrapper: false,
+              input_html: { class: "input" },
+              input_label: { class: "label" },
+              :error => false %>
+    </div>
+  <% unless resource.errors[:password].empty? %>
+    <p class="help is-danger">Please enter a valid password</p>
+  <% end %>
+  </div>
+
+  <div class="field">
+    <div class="control">
+      <%= f.input :password_confirmation,
+              required: true,
+              wrapper: false,
+              input_html: { class: "input" },
+              input_label: { class: "label" },
+              :error => false %>
+    </div>
+  <% unless resource.errors[:password_confirmation].empty? %>
+    <p class="help is-danger">Passwords do not match</p>
+  <% end %>
+  </div>
+  
+  <div class="field">
+    <div class="control">
+      <%= f.button :submit, "Sign up", class: "button is-primary is-medium" %>
+    </div>
+  </div>
+  
+<% end %>
