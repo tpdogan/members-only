@@ -23,7 +23,7 @@
         <div class="media-content">
           <div class="content">
             <% if member_signed_in? %>
-            <strong><%= current_member.email %></strong><br />
+            <strong><%= post.member.email %></strong><br />
             <% else %>
             <strong>Log in to see the author's name</strong>
             <% end %>
@@ -31,7 +31,7 @@
             <p>Posted on: <%= post.created_at.strftime("%d-%m-%Y (%A)") %> </p>
           </div>
 
-          <% if member_signed_in? %>
+          <% if member_signed_in? && current_member.email == post.member.email %>
           <nav class="level">
             <div class="level-left is-mobile">
               <%= link_to post, class: "level-item" do %> <%# what does the loop do here %>
