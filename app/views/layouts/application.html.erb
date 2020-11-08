@@ -4,7 +4,7 @@
     <title>Members Only</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <meta name="viewport" content="width=device-width">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -21,43 +21,39 @@
       </div>
     <% end %>
 
-    <nav class="navbar is-primary">
+    <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
         <%= link_to root_path, class: "navbar-item" do %>
           <h1 class="title is-5">Members Only</h1>
         <% end %>
-        <div class="navbar-burger burger" data-target="navbarExample">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
+        <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarExample">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
       </div>
       <div class="navbar-menu" id="navbarExample">
         <div class="navbar-end">
           <div class="navbar-item">
-            <div class="field is-grouped">
-              <p class="control">
-                <%= link_to "New Topic", root_path, class: "button is-dark has-text-white"%>
-              </p>
-
-              <% if member_signed_in? %>
-              <p class="control">
-                <%= link_to current_member.username, edit_member_registration_path, class: "button is-primary has-text-dark"%>
-              </p>
-              <p class="control">
-                <%= link_to "Log out", destroy_member_session_path, method: :delete, class: "button is-primary has-text-dark"%>
-              </p>
-              <% else %>
-              <p class="control">
-                <%= link_to "New User", new_member_registration_path, class: "button is-primary has-text-dark is-hoverable"%>
-              </p>
-              <p class="control">
-                <%= link_to "Sign In", new_member_session_path, class: "button is-primary has-text-dark"%>
-              </p>
-              <% end %>
-
-            </div>
+            <%= link_to "New Topic", root_path, class: "button is-dark has-text-white is-fullwidth" %>
           </div>
+
+          <% if member_signed_in? %>
+          <div class="navbar-item">
+            <%= link_to current_member.username, edit_member_registration_path, class: "button is-primary has-text-dark is-fullwidth"%>
+          </div>
+          <div class="navbar-item">
+            <%= link_to "Log out", destroy_member_session_path, method: :delete, class: "button is-primary has-text-dark is-fullwidth"%>
+          </div>
+          <% else %>
+          <div class="navbar-item">
+            <%= link_to "New User", new_member_registration_path, class: "button is-primary has-text-dark is-fullwidth"%>
+          </div>
+          <div class="navbar-item">
+            <%= link_to "Log In", new_member_session_path, class: "button is-primary has-text-dark is-fullwidth"%>
+          </div>
+          <% end %>
+
         </div>
       </div>
     </nav>
