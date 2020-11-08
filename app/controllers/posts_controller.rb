@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_member!, only: [:edit, :update, :destroy]
+  #before_action :authenticate_member!, except: [:index, :show]
 
   def index
     @posts = Post.all.order("created_at DESC")
@@ -11,20 +11,21 @@ class PostsController < ApplicationController
   end
 
   def new
-    @post = Post.new
+    @post = current_member.posts.build
   end
 
   def edit
   end
 
   def create
-    @post = Post.new(post_params)
+    @post = current_member.posts.build(post_params)
 
     respond_to do |format|
       if @post.save
         format.html { redirect_to root_path, notice: 'Post was successfully created.' }
       else
         @posts = Post.all
+        flash[:alert] = @post.errors.count
         format.html { render :index, alert: 'Post was not created.' }
       end
     end
@@ -56,6 +57,6 @@ class PostsController < ApplicationController
     end
 
     def post_params
-      params.require(:post).permit(:title, :body)
+      params.require(:post).permit(:title, :body, :member_id)
     end
 end

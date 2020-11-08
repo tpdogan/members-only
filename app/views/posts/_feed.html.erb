@@ -23,7 +23,7 @@
         <div class="media-content">
           <div class="content">
             <% if member_signed_in? %>
-            <strong>The author</strong><br />
+            <strong><%= current_member.email %></strong><br />
             <% else %>
             <strong>Log in to see the author's name</strong>
             <% end %>
