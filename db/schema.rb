@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2020_11_08_190539) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "members", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -21,9 +24,10 @@ ActiveRecord::Schema.define(version: 2020_11_08_190539) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "username"
-    t.string "icon"
+    t.string "icon", default: "https://www.flaticon.com/svg/static/icons/svg/1077/1077114.svg"
     t.index ["email"], name: "index_members_on_email", unique: true
     t.index ["reset_password_token"], name: "index_members_on_reset_password_token", unique: true
+    t.index ["username"], name: "index_members_on_username", unique: true
   end
 
   create_table "posts", force: :cascade do |t|
