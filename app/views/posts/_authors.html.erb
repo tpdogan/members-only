@@ -7,11 +7,11 @@
       <% c = 0 %>
       <% max = 5 %>
       <% while c < 5 do %>
-      <% n = rand(@members.length-1) %>
-      <% unless nums.include? n %>
-        <% nums.push(n) %>
-        <% c += 1 %>
-      <% end %>
+        <% n = rand(@members.length-1) %>
+        <% if !nums.include?(n) && @members[n].posts.length != 0 %>
+          <% nums.push(n) %>
+          <% c += 1 %>
+        <% end %>
       <% end %>
 
       <% nums.each do |n| %>
